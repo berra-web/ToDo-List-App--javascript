@@ -1,0 +1,157 @@
+body {
+    background: #fff;
+    color: #333;
+    font-family: Lato, sans-serif;
+  }
+  .container {
+    display: block;
+    width: 800px;
+    margin: 100px auto 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li * {
+    float: left;
+  }
+  ul li, h3:before  {
+    content: '✓';
+  }
+  input, button {
+    outline: none;
+    background: #4FD1C5;
+    color: white;
+    padding: 12px;
+    margin: 10px 10px 0;
+    border: none; 
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+
+  }
+
+  button{
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+   
+  }
+  button::before{
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Heading */
+  h3,
+  label[for='new-map'] {
+    color: #333;
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 2px solid #333;
+    padding: 30px 0 10px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  input[type="text"] {
+    margin: 10px 2px 0 ;
+    font-size: 18px;
+    line-height: 18px;
+    height: 18px;
+    padding: 12px;
+    border: 3px solid #ddd;
+    background: #fff;
+    border-radius: 10px;
+    font-family: Lato, sans-serif;
+    color: #888;
+  }
+  input[type="text"]:focus {
+    color: #333;
+  }
+  
+  /* New MyMap */
+  label[for='new-map'] {
+    display: block;
+    margin: 0 0 20px; 
+  }
+  input#new-Map {
+    width: 318px;
+  }
+  p > button:hover {
+    background: #00c257;
+    color: black;
+    box-shadow: 6px 6px rgb(121, 237, 144);
+  }
+
+ 
+  
+  /* Map list */
+  li {
+    overflow: hidden;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* ny skapade LI, Label, input */
+  li > input[type="checkbox"] {
+    margin: 0 10px;
+    position: relative;
+    top: 15px;
+  }
+  li > label {
+    font-size: 18px;
+    line-height: 40px;
+    width: 318px;
+    height: 40px;
+    padding: 0 0 0 11px;
+    border: 3px solid #ddd;
+    margin: 10px 0 0 70px;
+    border-radius: 10px;
+  }
+  li >  input[type="text"] {
+    width: 318px;
+    border: 3px solid #ddd;
+    margin: 10px 0 0 70px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 0 0 11px;
+  }
+  li > .delete:hover {
+    background: #CF2323;
+    color: #fff;
+    box-shadow: 6px 6px rgba(238, 136, 136, 0.9);
+  }
+  li > .edit:hover:hover{
+    background: #3498db;
+    color: #fff;
+    box-shadow: 6px 6px rgb(124, 185, 250);
+  }
+  li > .todo:hover{
+    background: #00c257;
+    color: #fff;
+    box-shadow: 6px 6px rgb(121, 237, 144);
+  }
+  
+  /* Färdiga Map */
+  #myMap-Box label {
+    color: #888;
+  }
+  
+  /* Edit  Map */
+  ul li input[type=text] {
+    display:none;
+  }
+  
+  ul li.edit-MyMap input[type=text] {
+    display:block;
+  }
+  
+   ul li.edit-MyMap label {
+    display:none;
+  }
+
