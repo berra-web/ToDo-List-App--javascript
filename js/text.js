@@ -55,22 +55,22 @@ console.log(createNewInboxElement());
 
 
  // Creates Function to Add Add button
-function addMap(){
-  //Uses If set == >> The user should not be able to create empty jobs in the list
+addButton.addEventListener('click', function(){
+   //Uses If set == >> The user should not be able to create empty jobs in the list
   // By Creating a new list object we can add the user's value to the new List with text from # new-task and the Add button.
   if(myInput.value === "") {            
-  addTaskErr.style.display = "";
-  } else {
-    addTaskErr.style.display = 'none';
-    // Add list to myMapInbox
-    var listItem = createNewInboxElement(myInput.value);
-    myMapInbox.appendChild(listItem);
-    // We Attach everything to each other through (bindInboxEvents) Function
-    bindInboxEvents(listItem, finishedBox);
-    //Input will be empty after
-    myInput.value = "";
-  }
-};
+    addTaskErr.style.display = "";
+    } else {
+      addTaskErr.style.display = 'none';
+      // Add list to myMapInbox
+      var listItem = createNewInboxElement(myInput.value);
+      myMapInbox.appendChild(listItem);
+      // We Attach everything to each other through (bindInboxEvents) Function
+      bindInboxEvents(listItem, finishedInBox);
+      //Input will be empty after
+      myInput.value = "";
+    }
+});
 
 // Create Functoin for our newly created Change Button
 var editMyMap = function() {
@@ -107,26 +107,16 @@ var deleteMyMap = function() {
     //Remove the parent list from ul
     ul.removeChild(listItem);
   }
-  
-  //Create Function for our CheckButton which adds all the value From last Folder to myMapBox
-  //BUT we will not have this button in our last Folder
-  var finishedBox = function(){
-    //We just add the selected value to the last folder using this.parentNodes
-  var listItem = this.parentNode;
-    //We Remove CheckButton from Last Folder
-    listItem.removeChild(listItem.childNodes[4]);  
-    //We reattach our folder
-    myMapBox.appendChild(listItem);
-    bindInboxEvents(listItem, finishedInBox);
-  };
-  
+   
   // Create Function for our CheckButton which adds all the value to the last Folder
   var finishedInBox = function() {
     //We just add the selected value to the last folder using this.parentNodes 
     var listItem = this.parentNode;
     //We reattach our folder again
-    myMapInbox.appendChild(listItem);
-    bindInboxEvents(listItem, finishedBox);
+    myMapInbox.appendChild(listItem);  
+     //We reattach our folder
+     myMapBox.appendChild(listItem);
+     listItem.removeChild(listItem.childNodes[4]); 
   };
   
   //Creates Bind Function that attaches all Folders to each other By calling it Functoin in Different Functions
@@ -147,13 +137,5 @@ var deleteMyMap = function() {
     deleteButton.onclick = deleteMyMap;
     
     //calls the finishedInBox Function When We Click the Add Button
-    checkBtn.onclick = finishedInBox;
-    checkBtn.onclick = finishedBox;
-    
+    checkBtn.onclick = finishedInBox; 
   };
-  
-  //AJAX - Send a request to the Add Button in Up
-  var ajaxRequest = function(){};
-  //Sends request to Add
-  addButton.addEventListener("click", addMap);
-  addButton.addEventListener("click", ajaxRequest);
